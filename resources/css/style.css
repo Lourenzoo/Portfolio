@@ -56,11 +56,12 @@ header {
 
 /* naviagation section */
 
+/* burger button */
 .menu-btn {
 	width: 2.5rem;
 	height: 2.5rem;;
 	border: none;
-	background-color: blue;
+	background-color: rgba(57,100,141,1);
 	position: relative;
 	z-index:2;
 	overflow: hidden;
@@ -75,6 +76,7 @@ header {
 	left: 0.6rem;
 	/* transform: translate(-50%, -50%); */
 	background-color: #222222;
+	transition: transform 0.5s, opacity 0.5s, background-color 0.5s;
 }
 
 .menu-btn span:nth-child(1) {
@@ -83,6 +85,23 @@ header {
 
 .menu-btn span:nth-child(3) {
 	transform: translateY(0.5rem);
+}
+
+/* button button cross */
+#home.open .menu-btn span:nth-child(2){
+	opacity: 0;
+}
+
+#home.open .menu-btn span:nth-child(1){
+	transform: translateY(0) rotate(45deg);
+}
+
+#home.open .menu-btn span:nth-child(3){
+	transform: translateY(0) rotate(-45deg);
+}
+
+#home.open .menu-btn span{
+	background-color: rgb(255, 255, 255);
 }
 
 /* #burger img {
@@ -356,7 +375,6 @@ main {
 }
 
 /* --Footer description-- */
-
 footer {
 	grid-area: footer;
 	width: 100%;
@@ -376,30 +394,68 @@ footer small {
 	color: rgba(131,8,8,1);
 }
 
+/* .scroll_up button */
+#scroll_up {
+	position: fixed;
+	bottom: 5%;
+	right: 10%;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 20%;
+	border: solid;
+	font-size: 1.5rem;
+	border: solid 0.2rem rgba(0, 7, 100, 1);
+	background-color: rgba(255, 255, 255,1);
+	color: rgba(131,8,8,1);
+	cursor: pointer;
+}
+
+#scroll_up:hover{
+	color:  rgba(255, 255, 255,1);
+	background-color: rgba(131,8,8,1);;
+	cursor: pointer;
+}
+
+/* .scroll_up a {
+	text-decoration: none;
+	font-size: 1.8rem;
+} */
+
 /* --Mobile Adaptation */
 
 /* --min 1024px (Laptops)-- */
 @media screen and (min-width: 1025px) {
-	/* .mobile {
-		display: none;
-	} */
 
 }
+
 	/* -- max-width 1023-24px (Tablets) -- */
 @media screen and (max-width: 1024px) {
-	/* .mobile {
-		display: none;
-	} */
-
 	.menu-btn {
 		display: block;
 	}
 
 	.desktop {
 		position: absolute;
-		right: 0;
-		top: 0;
-		background-color: aquamarine;
+		right: -20rem;
+		top:0;
+		background-color: rgba(131,8,8,1);
+		padding: 3rem 1rem 0.5rem 1rem;
+		transition: transform 0.5s;
+	}
+
+	#home.open .desktop{
+		transform: translateX(-242%);
+	}
+
+	.desktop ul>li{
+		display: block;
+	}
+
+	.desktop ul>li>a{
+		color: rgba(255, 255, 255,1);
+		font-size: 1.5rem;
+		display: block;
+		padding: 0.2rem 0;
 	}
 
 	.descriptionContainer p {
@@ -423,16 +479,29 @@ footer small {
 		width: 20%;
 		height: auto;
 	}
+
+	#scroll_up {
+		bottom: 5%;
+		right: 10%;
+	}
+	
 } 
 /* -- max-width 768px (Mobile L and less)-- */
 @media screen and (max-width: 768px) {
-	/* .desktop {
-		display: none;
+	.menu-btn {
+		display: block;
 	}
 
-	.mobile {
-		display: block;
-	} */
+	.desktop {
+		right: -20rem;
+		top:0;
+		transition: transform 0.5s;
+	}
+
+	#home.open .desktop{
+		transform: translateX(-226.5%);
+	}
+
 
 	#about div:nth-child(even)>h2{
 		margin-bottom: 1rem;
@@ -496,10 +565,33 @@ footer small {
 		font-size: 1.2rem;
 	}
 
+	#scroll_up {
+		position: fixed;
+		bottom: 5%;
+		right: 35%;
+	}
+
 }
 
 /* -- max-width 425px (Mobile L and less)-- */
 @media screen and (max-width: 425px) {
+	.menu-btn {
+		display: block;
+	}
+
+	.desktop {
+		/* right: -20rem;
+		top:0; */
+		display: none;
+		transition: display 2s;
+	}
+
+	#home.open .desktop{
+		transform: translateX(-204%);
+		display: block;
+	}
+
+
 	.logo>h1{
 		font-size: 1.5rem;
 	}
@@ -559,6 +651,27 @@ footer small {
 		font-size: 0.8rem;
 	}
 
+	#scroll_up {
+		bottom: 5%;
+		right: 45%;
+	}
+	
+}
+
+@media screen and (max-width: 375px) {
+	.menu-btn {
+		display: block;
+	}
+
+	.desktop {
+		right: -20rem;
+		top:0;
+	}
+
+	#home.open .desktop{
+		transform: translateX(-201%);
+	}
+
 }
 
 /* --max-width 280-320 (Galaxy Fold)-- */
@@ -566,6 +679,18 @@ footer small {
 	/* .mobile {
 		display: none;
 	} */
+	.menu-btn {
+		display: block;
+	}
+
+	.desktop {
+		right: -20rem;
+		top:0;
+	}
+
+	#home.open .desktop{
+		transform: translateX(-198%);
+	}
 
 	.logo>h1{
 		font-size: 1.5rem;
