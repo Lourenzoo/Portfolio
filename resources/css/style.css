@@ -173,7 +173,8 @@ main {
 	object-fit: cover;
 	background-size: cover;
 	border-radius: 50%;
-	border: 0.625rem solid rgba(131,8,8,1);
+	border: 0.256rem solid rgba(131,8,8,1);
+	cursor: pointer;
 }
 
 
@@ -204,7 +205,7 @@ main {
 }
 
 #about div:nth-child(even)>iframe{
-	max-width: 60%;
+	max-width: 40%;
 	height: auto;
 	border-radius: 1rem;
 	cursor: pointer;
@@ -282,7 +283,7 @@ main {
 #projects img {
 	max-width: 100%;
 	height: auto;
-	border:0.0625rem solid rgba(255, 255, 255, 1) ;
+	border:0.0625rem solid rgba(255, 255, 255, 1);
 	transition: border 1s linear;
 }
 
@@ -413,7 +414,7 @@ footer small {
 	border: solid;
 	font-size: 1.5rem;
 	border: solid 0.2rem rgba(0, 7, 100, 1);
-	background-color: rgba(255, 255, 255,1);
+	background-color: rgba(255, 255, 255,0.5);
 	color: rgba(131,8,8,1);
 	cursor: pointer;
 }
